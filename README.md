@@ -44,6 +44,9 @@ init_centers = KMeansPP(n_clusters=10, num_features=2)(data)
 # KMeans
 kmeans = KMeans(n_clusters=10, num_features=2, num_iterations=100)
 centers, cluster_assignment = kmeans(data, init_centers)
+
+# centers: shape: (B, K, D) where B is the number of batches, K is the number of clusters, D is the dimension
+# cluster_assignment: shape: (B, N) where B is the number of batches, N is the number of samples per batch
 ```
 
 ## Requirements
