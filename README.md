@@ -29,6 +29,8 @@ this can be made much faster by using a CUDA kernel.
 | 10000            | 128     | False | 6.50     |
 | 10000            | 128     | True  | 3.52     |
 
+The above is recorded on GTX Geforce 1650Ti 4GB on Windows 10 with Intel i7-10750H @ 2.60GHz and 16GB RAM.
+
 ## Simple Program Example
 
 ```python
