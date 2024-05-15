@@ -8,14 +8,14 @@ class KMeansPP(nn.Module):
     """
     KMeans++ initialization for KMeans clustering
     Constructor for KMeans++ class
-    :param centers: number of clusters to initialize
-    :param num_features: number of features in each data point. if data is 2D, num_features=2
+    :param n_clusters: number of clusters to initialize
+    :param dim: number of features in each data point. if data is 2D, num_features=2
     """
 
-    def __init__(self, centers: int, num_features: int):
+    def __init__(self, n_clusters: int, dim: int):
         super().__init__()
-        self.centers = centers
-        self.num_features = num_features
+        self.centers = n_clusters
+        self.num_features = dim
 
     @torch.no_grad()
     def forward(self, data):

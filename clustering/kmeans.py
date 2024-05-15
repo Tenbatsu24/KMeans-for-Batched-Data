@@ -5,11 +5,19 @@ from einops import rearrange, repeat
 
 
 class KMeans(nn.Module):
+    """
+    KMeans clustering algorithm for batched data
 
-    def __init__(self, num_clusters: int, num_features: int, num_iterations: int):
+    Constructor for KMeans class
+    :param num_clusters: number of clusters to initialize
+    :param dim: number of features in each data point. if data is 2D, num_features=2
+    :num_iterations: number of iterations to run the KMeans algorithm
+    """
+
+    def __init__(self, num_clusters: int, dim: int, num_iterations: int):
         super().__init__()
         self.num_clusters = num_clusters
-        self.num_features = num_features
+        self.num_features = dim
         self.num_iterations = num_iterations
 
     @torch.no_grad()
@@ -23,7 +31,6 @@ class KMeans(nn.Module):
         # Step 2: Compute the distance of each data point from the nearest cluster center
         for i in range(self.num_iterations):
             old_centers = centers.clone()
-            # print(old_centers.shape)  # torch.Size([3, 4, 2])
 
             # do the cluster assignment step
             cluster_assignment = torch.cdist(data, centers).argmin(dim=2)
